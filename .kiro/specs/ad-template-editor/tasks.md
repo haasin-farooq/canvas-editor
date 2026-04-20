@@ -12,12 +12,12 @@ A React + TypeScript ad template editor using react-konva. The implementation is
   - Configure Vitest with canvas mock setup
   - _Requirements: all (foundational)_
 
-- [ ] 2. Define data models and constants
+- [-] 2. Define data models and constants
   - [ ] 2.1 Create `src/types.ts` with `BaseBlock`, `TextBlock`, `ImageBlock`, `Block` union type, `EditorState`, `HistoryState`, and `EditorAction` types
     - Follow the interfaces exactly as specified in the design document
     - _Requirements: 2.2, 3.3_
 
-  - [ ] 2.2 Create `src/constants.ts` with `CANVAS_WIDTH`, `CANVAS_HEIGHT`, `MIN_BLOCK_SIZE`, `TEXT_BLOCK_DEFAULTS`, `IMAGE_BLOCK_DEFAULTS`, and `initialState`
+  - [x] 2.2 Create `src/constants.ts` with `CANVAS_WIDTH`, `CANVAS_HEIGHT`, `MIN_BLOCK_SIZE`, `TEXT_BLOCK_DEFAULTS`, `IMAGE_BLOCK_DEFAULTS`, and `initialState`
     - Canvas defaults: 800×600, min block size 20×20
     - Text defaults: center position, "Edit me", Arial 24px, #333333
     - Image defaults: center position, 200×200
