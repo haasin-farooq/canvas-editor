@@ -12,6 +12,9 @@ export function EditorProvider({ children }: EditorProviderProps) {
 
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
+      // Don't intercept keyboard shortcuts while inline text editing is active
+      if (state.isEditingText) return;
+
       // Ctrl+Shift+Z or Cmd+Shift+Z → Redo (check before undo since it's more specific)
       if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === "z") {
         e.preventDefault();
@@ -26,7 +29,7 @@ export function EditorProvider({ children }: EditorProviderProps) {
         return;
       }
     },
-    [dispatch],
+    [dispatch, state.isEditingText],
   );
 
   useEffect(() => {

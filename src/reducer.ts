@@ -158,6 +158,9 @@ export function editorReducer(
       );
       return { ...snapped, blocks: updatedBlocks };
     }
+    case "SET_EDITING_TEXT": {
+      return { ...state, isEditingText: action.payload.editing };
+    }
     case "UNDO": {
       if (state.history.past.length === 0) return state;
       const previous = state.history.past[state.history.past.length - 1];

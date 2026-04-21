@@ -18,6 +18,11 @@ export function TextBlock({ block }: TextBlockProps) {
     dispatch({ type: "SELECT_BLOCK", payload: { id: block.id } });
   };
 
+  const handleDblClick = (e: Konva.KonvaEventObject<MouseEvent>) => {
+    e.cancelBubble = true;
+    dispatch({ type: "SET_EDITING_TEXT", payload: { editing: true } });
+  };
+
   const handleDragEnd = (e: Konva.KonvaEventObject<DragEvent>) => {
     dispatch({
       type: "UPDATE_BLOCK",
@@ -72,6 +77,7 @@ export function TextBlock({ block }: TextBlockProps) {
       fill={block.fill}
       draggable
       onClick={handleClick}
+      onDblClick={handleDblClick}
       onDragEnd={handleDragEnd}
       onTransformEnd={handleTransformEnd}
     />
