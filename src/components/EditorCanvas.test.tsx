@@ -7,9 +7,11 @@ import type { EditorContextValue } from "../context/EditorContext";
 import { initialState, CANVAS_WIDTH, CANVAS_HEIGHT } from "../constants";
 
 function createWrapper(dispatch = vi.fn()) {
+  const stageRef = { current: null };
   const value: EditorContextValue = {
     state: initialState,
     dispatch,
+    stageRef,
   };
 
   return {

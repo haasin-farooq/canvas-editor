@@ -1,4 +1,11 @@
-import { useReducer, useEffect, useCallback, type ReactNode } from "react";
+import {
+  useReducer,
+  useEffect,
+  useCallback,
+  useRef,
+  type ReactNode,
+} from "react";
+import type Konva from "konva";
 import { EditorContext } from "./EditorContext";
 import { editorReducer } from "../reducer";
 import { initialState } from "../constants";
@@ -9,6 +16,7 @@ interface EditorProviderProps {
 
 export function EditorProvider({ children }: EditorProviderProps) {
   const [state, dispatch] = useReducer(editorReducer, initialState);
+  const stageRef = useRef<Konva.Stage | null>(null);
 
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
@@ -40,7 +48,7 @@ export function EditorProvider({ children }: EditorProviderProps) {
   }, [handleKeyDown]);
 
   return (
-    <EditorContext.Provider value={{ state, dispatch }}>
+    <EditorContext.Provider value={{ state, dispatch, stageRef }}>
       {children}
     </EditorContext.Provider>
   );
