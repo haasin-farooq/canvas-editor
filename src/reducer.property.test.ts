@@ -695,7 +695,7 @@ describe("Feature: ad-template-editor, Property 9: Undo-redo round trip", () => 
             id: `block-${i}`,
           }));
           return mutatingActionForBlocksArb(uniqueBlocks)
-            .filter((_action) => {
+            .filter(() => {
               // Filter out actions that might be no-ops
               // We want actions that actually mutate state
               return true;

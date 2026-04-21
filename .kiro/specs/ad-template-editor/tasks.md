@@ -225,8 +225,8 @@ A React + TypeScript ad template editor using react-konva. The implementation is
     - On deactivation, dispatch `UPDATE_TEXT_CONTENT` with the textarea value
     - _Requirements: 11.1, 11.2, 11.3_
 
-- [ ] 15. Implement PNG export
-  - [ ] 15.1 Create `src/utils/exportPng.ts` utility function
+- [x] 15. Implement PNG export
+  - [x] 15.1 Create `src/utils/exportPng.ts` utility function
     - Accept a Konva Stage ref
     - Temporarily hide the Transformer
     - Call `stage.toDataURL()` to generate PNG
@@ -235,28 +235,28 @@ A React + TypeScript ad template editor using react-konva. The implementation is
     - Wrap in try/catch for error handling
     - _Requirements: 10.1, 10.2, 10.3, 10.4_
 
-  - [ ] 15.2 Wire the Export PNG button in the Toolbar
+  - [x] 15.2 Wire the Export PNG button in the Toolbar
     - Pass Stage ref from EditorCanvas up to Toolbar (via context or prop)
     - Call `exportPng` on button click
     - _Requirements: 10.1, 10.2_
 
-- [ ] 16. Assemble the App layout
+- [x] 16. Assemble the App layout
   - Create `src/App.tsx` that composes `EditorProvider` > `Toolbar` + `EditorCanvas` + `LayerPanel`
   - Apply layout styling: Toolbar on top, Canvas in center, LayerPanel on the right
   - Style with Smartly-inspired design: neutral backgrounds, subtle borders, compact controls
   - _Requirements: all (integration)_
 
-- [ ] 17. Unit tests for key UI interactions
-  - [ ]\* 17.1 Write unit tests for Toolbar (add text, add image with file validation, undo/redo button states)
+- [x] 17. Unit tests for key UI interactions
+  - [x]\* 17.1 Write unit tests for Toolbar (add text, add image with file validation, undo/redo button states)
     - _Requirements: 2.1, 3.1, 3.6, 9.3, 9.4_
 
-  - [ ]\* 17.2 Write unit tests for LayerPanel (ordering, move up/down disabled states, visibility toggle)
+  - [x]\* 17.2 Write unit tests for LayerPanel (ordering, move up/down disabled states, visibility toggle)
     - _Requirements: 8.1, 8.7, 8.8_
 
-  - [ ]\* 17.3 Write unit tests for export functionality (Transformer hidden, download triggered)
+  - [x]\* 17.3 Write unit tests for export functionality (Transformer hidden, download triggered)
     - _Requirements: 10.1, 10.2, 10.3_
 
-- [ ] 18. Final checkpoint — Full integration verification
+- [x] 18. Final checkpoint — Full integration verification
   - Ensure all tests pass, ask the user if questions arise.
 
 ## Notes
