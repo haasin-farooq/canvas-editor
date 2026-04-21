@@ -47,5 +47,6 @@ export type EditorAction =
   | { type: "MOVE_LAYER_DOWN"; payload: { id: string } }
   | { type: "TOGGLE_VISIBILITY"; payload: { id: string } }
   | { type: "UPDATE_TEXT_CONTENT"; payload: { id: string; text: string } }
+  | { type: "SET_EDITING_TEXT"; payload: { editing: boolean } }
   | { type: "UNDO" }
   | { type: "REDO" };

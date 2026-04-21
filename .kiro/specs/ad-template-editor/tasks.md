@@ -197,29 +197,29 @@ A React + TypeScript ad template editor using react-konva. The implementation is
   - Ensure all tests pass, ask the user if questions arise.
   - Verify: blocks render, drag works, resize works, rotate works, selection works.
 
-- [ ] 13. Implement the LayerPanel component
-  - [ ] 13.1 Create `src/components/LayerPanel.tsx` with block list
+- [x] 13. Implement the LayerPanel component
+  - [x] 13.1 Create `src/components/LayerPanel.tsx` with block list
     - Display all blocks ordered by layerIndex descending (topmost first)
     - Each item shows the block name (e.g., "Text 1", "Image 2")
     - _Requirements: 8.1_
 
-  - [ ] 13.2 Add Move Up and Move Down controls to LayerPanel
+  - [x] 13.2 Add Move Up and Move Down controls to LayerPanel
     - "Move Up" dispatches `MOVE_LAYER_UP`, disabled at top boundary
     - "Move Down" dispatches `MOVE_LAYER_DOWN`, disabled at bottom boundary
     - _Requirements: 8.2, 8.3, 8.7, 8.8_
 
-  - [ ] 13.3 Add visibility toggle to LayerPanel
+  - [x] 13.3 Add visibility toggle to LayerPanel
     - Toggle button dispatches `TOGGLE_VISIBILITY`
     - Visual indicator for visible/hidden state
     - _Requirements: 8.4, 8.5, 8.6_
 
-- [ ] 14. Implement inline text editing
-  - [ ] 14.1 Create `src/components/canvas/TextEditOverlay.tsx`
+- [x] 14. Implement inline text editing
+  - [x] 14.1 Create `src/components/canvas/TextEditOverlay.tsx`
     - Render an HTML `<textarea>` positioned over the selected TextBlock
     - Position and size the textarea to match the block's canvas coordinates
     - _Requirements: 11.1, 11.2_
 
-  - [ ] 14.2 Wire inline editing activation and deactivation
+  - [x] 14.2 Wire inline editing activation and deactivation
     - Double-click on TextBlock activates editing (sets `isEditingText: true`)
     - Click outside or press Escape deactivates editing
     - On deactivation, dispatch `UPDATE_TEXT_CONTENT` with the textarea value
