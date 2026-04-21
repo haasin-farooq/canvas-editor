@@ -1,0 +1,44 @@
+import { useReducer, useEffect, useCallback, type ReactNode } from "react";
+import { EditorContext } from "./EditorContext";
+import { editorReducer } from "../reducer";
+import { initialState } from "../constants";
+
+interface EditorProviderProps {
+  children: ReactNode;
+}
+
+export function EditorProvider({ children }: EditorProviderProps) {
+  const [state, dispatch] = useReducer(editorReducer, initialState);
+
+  const handleKeyDown = useCallback(
+    (e: KeyboardEvent) => {
+      // Ctrl+Shift+Z or Cmd+Shift+Z → Redo (check before undo since it's more specific)
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === "z") {
+        e.preventDefault();
+        dispatch({ type: "REDO" });
+        return;
+      }
+
+      // Ctrl+Z or Cmd+Z → Undo
+      if ((e.ctrlKey || e.metaKey) && e.key === "z") {
+        e.preventDefault();
+        dispatch({ type: "UNDO" });
+        return;
+      }
+    },
+    [dispatch],
+  );
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [handleKeyDown]);
+
+  return (
+    <EditorContext.Provider value={{ state, dispatch }}>
+      {children}
+    </EditorContext.Provider>
+  );
+}

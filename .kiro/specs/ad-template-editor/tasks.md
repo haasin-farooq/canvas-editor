@@ -64,90 +64,90 @@ A React + TypeScript ad template editor using react-konva. The implementation is
     - Update the text property of a TextBlock, push snapshot
     - _Requirements: 11.3_
 
-- [ ] 4. Checkpoint — Verify reducer logic
+- [x] 4. Checkpoint — Verify reducer logic
   - Ensure all reducer tests pass, ask the user if questions arise.
 
-- [ ] 5. Property-based tests for the reducer
-  - [ ]\* 5.1 Write property test: Block rendering order matches layerIndex
+- [x] 5. Property-based tests for the reducer
+  - [x] 5.1 Write property test: Block rendering order matches layerIndex
     - **Property 1: Block rendering order matches layerIndex**
     - Generate random block arrays, sort by layerIndex, verify order is consistent
     - **Validates: Requirements 1.3, 8.1**
 
-  - [ ]\* 5.2 Write property test: New blocks receive the highest layerIndex
+  - [x]\* 5.2 Write property test: New blocks receive the highest layerIndex
     - **Property 2: New blocks receive the highest layerIndex**
     - Generate random block arrays, dispatch ADD_TEXT_BLOCK or ADD_IMAGE_BLOCK, verify new block has max layerIndex
     - **Validates: Requirements 2.3, 3.4**
 
-  - [ ]\* 5.3 Write property test: Mutating actions push a history snapshot
+  - [x]\* 5.3 Write property test: Mutating actions push a history snapshot
     - **Property 3: Mutating actions push a history snapshot**
     - Generate random state + mutating action, verify history.past grows by 1 and contains pre-action blocks
     - **Validates: Requirements 2.4, 3.5, 5.2, 6.2, 7.2, 8.6**
 
-  - [ ]\* 5.4 Write property test: Selection invariant
+  - [x]\* 5.4 Write property test: Selection invariant
     - **Property 4: Selection invariant**
     - Generate random action sequences, verify selectedBlockId is null or a valid block id
     - **Validates: Requirements 4.4**
 
-  - [ ]\* 5.5 Write property test: Minimum block size constraint
+  - [x]\* 5.5 Write property test: Minimum block size constraint
     - **Property 5: Minimum block size constraint**
     - Generate random resize operations with small target sizes, verify width and height >= 20
     - **Validates: Requirements 6.3**
 
-  - [ ]\* 5.6 Write property test: Layer swap correctness
+  - [x]\* 5.6 Write property test: Layer swap correctness
     - **Property 6: Layer swap correctness**
     - Generate random block arrays, pick a non-boundary block, move up/down, verify swap and index set preservation
     - **Validates: Requirements 8.2, 8.3**
 
-  - [ ]\* 5.7 Write property test: Visibility toggle is an involution
+  - [x]\* 5.7 Write property test: Visibility toggle is an involution
     - **Property 7: Visibility toggle is an involution**
     - Generate random booleans, toggle twice, verify identity
     - **Validates: Requirements 8.4**
 
-  - [ ]\* 5.8 Write property test: Only visible blocks are rendered
+  - [x]\* 5.8 Write property test: Only visible blocks are rendered
     - **Property 8: Only visible blocks are rendered**
     - Generate random blocks with mixed visibility, filter to visible, verify subset correctness
     - **Validates: Requirements 8.5, 10.4**
 
-  - [ ]\* 5.9 Write property test: Undo-redo round trip
+  - [x]\* 5.9 Write property test: Undo-redo round trip
     - **Property 9: Undo-redo round trip**
     - Generate random state + action, apply then undo → blocks restored; undo then redo → blocks restored
     - **Validates: Requirements 9.1, 9.2, 9.6**
 
-  - [ ]\* 5.10 Write property test: New action after undo clears redo stack
+  - [x]\* 5.10 Write property test: New action after undo clears redo stack
     - **Property 10: New action after undo clears redo stack**
     - Generate state with non-empty future, dispatch mutating action, verify future is empty
     - **Validates: Requirements 9.5**
 
 - [ ] 6. Create the EditorProvider context
-  - [ ] 6.1 Create `src/context/EditorContext.ts` with `EditorContext` and `useEditor` custom hook
+  - [x] 6.1 Create `src/context/EditorContext.ts` with `EditorContext` and `useEditor` custom hook
     - Context provides `{ state, dispatch }` as defined in the design
     - `useEditor` hook throws if used outside provider
     - _Requirements: all (foundational wiring)_
 
-  - [ ] 6.2 Create `src/context/EditorProvider.tsx` component
+  - [x] 6.2 Create `src/context/EditorProvider.tsx` component
     - Wraps children with context, owns `useReducer(editorReducer, initialState)`
     - Registers keyboard shortcuts: Ctrl+Z for undo, Ctrl+Shift+Z for redo
     - _Requirements: 9.1, 9.2_
 
-- [ ] 7. Implement the Toolbar component
-  - [ ] 7.1 Create `src/components/Toolbar.tsx` with Add Text and Add Image buttons
+- [-] 7. Implement the Toolbar component
+  - [x] 7.1 Create `src/components/Toolbar.tsx` with Add Text and Add Image buttons
     - "Add Text" dispatches `ADD_TEXT_BLOCK`
     - "Add Image" opens a file input that accepts `.png,.jpg,.jpeg`
     - Validate MIME type before dispatching; show error for invalid files
     - Read file as data URL via FileReader, dispatch `ADD_IMAGE_BLOCK`
     - _Requirements: 2.1, 3.1, 3.2, 3.6_
 
-  - [ ] 7.2 Add Undo and Redo buttons to the Toolbar
+  - [x] 7.2 Add Undo and Redo buttons to the Toolbar
     - Undo dispatches `UNDO`, disabled when `history.past.length === 0`
     - Redo dispatches `REDO`, disabled when `history.future.length === 0`
     - _Requirements: 9.1, 9.2, 9.3, 9.4_
 
-  - [ ] 7.3 Add Export PNG button to the Toolbar (placeholder — export logic comes later)
+  - [x] 7.3 Add Export PNG button to the Toolbar (placeholder — export logic comes later)
     - Button renders but export handler will be wired in a later task
     - _Requirements: 10.1 (partial)_
 
 - [ ] 8. Implement the EditorCanvas — basic rendering
-  - [ ] 8.1 Create `src/components/EditorCanvas.tsx` with Konva Stage and Layer
+  - [x] 8.1 Create `src/components/EditorCanvas.tsx` with Konva Stage and Layer
     - Render Stage at 800×600 with a white background Rect
     - Click on empty area dispatches `SELECT_BLOCK` with `null`
     - _Requirements: 1.1, 1.2, 4.3_
