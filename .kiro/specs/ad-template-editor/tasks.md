@@ -158,42 +158,42 @@ A React + TypeScript ad template editor using react-konva. The implementation is
     - Render `TextBlock` or `ImageBlock` component based on block type
     - _Requirements: 1.3, 8.5_
 
-- [ ] 9. Implement the TextBlock canvas component
-  - [ ] 9.1 Create `src/components/canvas/TextBlock.tsx`
+- [x] 9. Implement the TextBlock canvas component
+  - [x] 9.1 Create `src/components/canvas/TextBlock.tsx`
     - Render a Konva `<Text>` node with block properties (x, y, width, height, rotation, text, fontSize, fontFamily, fill)
     - Make it draggable
     - On click, dispatch `SELECT_BLOCK`
     - _Requirements: 2.2, 4.1_
 
-  - [ ] 9.2 Handle drag end on TextBlock
+  - [x] 9.2 Handle drag end on TextBlock
     - Read `e.target.x()` and `e.target.y()` on `onDragEnd`
     - Dispatch `UPDATE_BLOCK` with new position
     - _Requirements: 5.1, 5.2_
 
-  - [ ] 9.3 Handle transform end on TextBlock
+  - [x] 9.3 Handle transform end on TextBlock
     - Read updated width, height, rotation, x, y from the Konva node on `onTransformEnd`
     - Dispatch `UPDATE_BLOCK` with new size, rotation, and position
     - _Requirements: 6.1, 6.2, 7.1, 7.2_
 
-- [ ] 10. Implement the ImageBlock canvas component
-  - [ ] 10.1 Create `src/components/canvas/ImageBlock.tsx`
+- [x] 10. Implement the ImageBlock canvas component
+  - [x] 10.1 Create `src/components/canvas/ImageBlock.tsx`
     - Render a Konva `<Image>` node using `useImage` hook from `react-konva-utils`
     - Make it draggable
     - On click, dispatch `SELECT_BLOCK`
     - _Requirements: 3.2, 3.3, 4.1_
 
-  - [ ] 10.2 Handle drag end and transform end on ImageBlock
+  - [x] 10.2 Handle drag end and transform end on ImageBlock
     - Same pattern as TextBlock: dispatch `UPDATE_BLOCK` with updated position/size/rotation
     - _Requirements: 5.1, 5.2, 6.1, 6.2, 7.1, 7.2_
 
-- [ ] 11. Implement the TransformerComponent
+- [x] 11. Implement the TransformerComponent
   - Create `src/components/canvas/TransformerComponent.tsx`
   - Render a Konva `<Transformer>` that attaches to the selected block's node ref
   - Enforce minimum size constraint: `boundBoxFunc` clamps width/height to >= 20
   - Attach/detach based on `selectedBlockId`
   - _Requirements: 4.2, 6.3_
 
-- [ ] 12. Checkpoint — Verify canvas interactions
+- [x] 12. Checkpoint — Verify canvas interactions
   - Ensure all tests pass, ask the user if questions arise.
   - Verify: blocks render, drag works, resize works, rotate works, selection works.
 

@@ -3,6 +3,7 @@ import { CANVAS_WIDTH, CANVAS_HEIGHT } from "../constants";
 import { useEditor } from "../context/EditorContext";
 import { TextBlock } from "./canvas/TextBlock";
 import { ImageBlock } from "./canvas/ImageBlock";
+import { TransformerComponent } from "./canvas/TransformerComponent";
 import type Konva from "konva";
 
 export function EditorCanvas() {
@@ -49,6 +50,7 @@ export function EditorCanvas() {
             />
           ),
         )}
+        <TransformerComponent selectedBlockId={state.selectedBlockId} />
       </Layer>
     </Stage>
   );
