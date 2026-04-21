@@ -152,7 +152,7 @@ A React + TypeScript ad template editor using react-konva. The implementation is
     - Click on empty area dispatches `SELECT_BLOCK` with `null`
     - _Requirements: 1.1, 1.2, 4.3_
 
-  - [ ] 8.2 Render blocks on the canvas sorted by layerIndex
+  - [x] 8.2 Render blocks on the canvas sorted by layerIndex
     - Map `state.blocks` sorted by `layerIndex` ascending
     - Filter to only `visible === true` blocks
     - Render `TextBlock` or `ImageBlock` component based on block type
