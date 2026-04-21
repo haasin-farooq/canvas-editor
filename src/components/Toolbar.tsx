@@ -1,11 +1,12 @@
 import { useRef, useState } from "react";
 import { useEditor } from "../context/EditorContext";
+import { exportPng } from "../utils/exportPng";
 
 const ACCEPTED_MIME_TYPES = ["image/png", "image/jpeg"];
 const ACCEPTED_EXTENSIONS = ".png,.jpg,.jpeg";
 
 export function Toolbar() {
-  const { state, dispatch } = useEditor();
+  const { state, dispatch, stageRef } = useEditor();
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [imageError, setImageError] = useState<string | null>(null);
 
@@ -52,7 +53,9 @@ export function Toolbar() {
   };
 
   const handleExport = () => {
-    // Placeholder — export logic will be wired in a later task
+    if (stageRef.current) {
+      exportPng(stageRef.current);
+    }
   };
 
   const canUndo = state.history.past.length > 0;
