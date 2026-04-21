@@ -24,43 +24,43 @@ A React + TypeScript ad template editor using react-konva. The implementation is
     - _Requirements: 1.1, 2.1, 2.2, 3.3, 6.3_
 
 - [ ] 3. Implement the editor reducer — core state transitions
-  - [ ] 3.1 Create `src/reducer.ts` with the `withSnapshot` helper function
+  - [x] 3.1 Create `src/reducer.ts` with the `withSnapshot` helper function
     - Pushes current blocks onto `history.past`, clears `history.future`
     - _Requirements: 9.5, 9.6_
 
-  - [ ] 3.2 Implement `ADD_TEXT_BLOCK` action in the reducer
+  - [x] 3.2 Implement `ADD_TEXT_BLOCK` action in the reducer
     - Create a new TextBlock with defaults, assign highest layerIndex, generate unique id and name
     - _Requirements: 2.1, 2.2, 2.3, 2.4_
 
-  - [ ] 3.3 Implement `ADD_IMAGE_BLOCK` action in the reducer
+  - [x] 3.3 Implement `ADD_IMAGE_BLOCK` action in the reducer
     - Create a new ImageBlock with defaults + provided imageSrc, assign highest layerIndex
     - _Requirements: 3.2, 3.3, 3.4, 3.5_
 
-  - [ ] 3.4 Implement `SELECT_BLOCK` action in the reducer
+  - [x] 3.4 Implement `SELECT_BLOCK` action in the reducer
     - Set `selectedBlockId` to the given id (or null); guard against invalid ids
     - _Requirements: 4.1, 4.3, 4.4_
 
-  - [ ] 3.5 Implement `UPDATE_BLOCK` action in the reducer
+  - [x] 3.5 Implement `UPDATE_BLOCK` action in the reducer
     - Apply partial changes to the matching block, push snapshot, enforce min size constraint (20×20)
     - Guard against non-existent block ids
     - _Requirements: 5.2, 6.2, 6.3, 7.2_
 
-  - [ ] 3.6 Implement `UNDO` and `REDO` actions in the reducer
+  - [x] 3.6 Implement `UNDO` and `REDO` actions in the reducer
     - Undo: pop from past, push current to future
     - Redo: pop from future, push current to past
     - No-op when stack is empty
     - _Requirements: 9.1, 9.2, 9.3, 9.4, 9.5, 9.6_
 
-  - [ ] 3.7 Implement `MOVE_LAYER_UP` and `MOVE_LAYER_DOWN` actions in the reducer
+  - [x] 3.7 Implement `MOVE_LAYER_UP` and `MOVE_LAYER_DOWN` actions in the reducer
     - Swap layerIndex with the adjacent block, push snapshot
     - No-op at boundaries
     - _Requirements: 8.2, 8.3, 8.6, 8.7, 8.8_
 
-  - [ ] 3.8 Implement `TOGGLE_VISIBILITY` action in the reducer
+  - [x] 3.8 Implement `TOGGLE_VISIBILITY` action in the reducer
     - Flip the `visible` property of the target block, push snapshot
     - _Requirements: 8.4, 8.5, 8.6_
 
-  - [ ] 3.9 Implement `UPDATE_TEXT_CONTENT` action in the reducer
+  - [x] 3.9 Implement `UPDATE_TEXT_CONTENT` action in the reducer
     - Update the text property of a TextBlock, push snapshot
     - _Requirements: 11.3_
 
