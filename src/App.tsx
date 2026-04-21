@@ -1,6 +1,7 @@
 import { EditorProvider } from "./context/EditorProvider";
 import { Toolbar } from "./components/Toolbar";
 import { EditorCanvas } from "./components/EditorCanvas";
+import { PropertiesPanel } from "./components/PropertiesPanel";
 import { LayerPanel } from "./components/LayerPanel";
 import "./App.css";
 
@@ -13,6 +14,7 @@ function App() {
           <div className="canvas-area">
             <EditorCanvas />
           </div>
+          <PropertiesPanel />
           <LayerPanel />
         </div>
       </div>
