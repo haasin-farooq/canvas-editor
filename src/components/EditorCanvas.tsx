@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useCallback, useState } from "react";
 import { Stage, Layer, Rect } from "react-konva";
 import { CANVAS_WIDTH, CANVAS_HEIGHT } from "../constants";
 import { useEditor } from "../context/EditorContext";
@@ -10,8 +10,13 @@ import type Konva from "konva";
 import type { TextBlock as TextBlockType } from "../types";
 
 export function EditorCanvas() {
-  const { state, dispatch } = useEditor();
-  const stageContainerRef = useRef<HTMLDivElement>(null);
+  const { state, dispatch, stageRef } = useEditor();
+  const [stageContainer, setStageContainer] = useState<HTMLDivElement | null>(
+    null,
+  );
+  const stageContainerRef = useCallback((node: HTMLDivElement | null) => {
+    setStageContainer(node);
+  }, []);
 
   const handleStageClick = (e: Konva.KonvaEventObject<MouseEvent>) => {
     // Only deselect when clicking directly on the background rect or stage
@@ -38,6 +43,7 @@ export function EditorCanvas() {
       style={{ position: "relative", display: "inline-block" }}
     >
       <Stage
+        ref={stageRef}
         width={CANVAS_WIDTH}
         height={CANVAS_HEIGHT}
         onClick={handleStageClick}
@@ -71,10 +77,10 @@ export function EditorCanvas() {
           />
         </Layer>
       </Stage>
-      {selectedTextBlock && (
+      {selectedTextBlock && stageContainer && (
         <TextEditOverlay
           block={selectedTextBlock}
-          stageContainer={stageContainerRef.current}
+          stageContainer={stageContainer}
         />
       )}
     </div>

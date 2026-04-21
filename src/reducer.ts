@@ -73,6 +73,7 @@ export function editorReducer(
         if (block.id !== id) return block;
         // Spread changes but exclude type to preserve the discriminant union
         const { type: _type, ...safeChanges } = changes;
+        void _type;
         const updated = { ...block, ...safeChanges };
         // Enforce minimum block size constraint (Req 6.3)
         if (updated.width < MIN_BLOCK_SIZE) {
