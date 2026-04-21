@@ -209,17 +209,6 @@ const uniqueLayerBlocksArb = (minLen = 2, maxLen = 10) =>
     );
 
 /**
- * Arbitrary: generates an EditorState with a given set of blocks.
- */
-const editorStateWithBlocksArb = (
-  blocks: fc.Arbitrary<Block[]>,
-): fc.Arbitrary<import("./types").EditorState> =>
-  blocks.map((bs) => ({
-    ...initialState,
-    blocks: bs,
-  }));
-
-/**
  * Arbitrary: generates a mutating action that targets an existing block id.
  * Mutating actions are those that call withSnapshot.
  */
@@ -706,7 +695,7 @@ describe("Feature: ad-template-editor, Property 9: Undo-redo round trip", () => 
             id: `block-${i}`,
           }));
           return mutatingActionForBlocksArb(uniqueBlocks)
-            .filter((action) => {
+            .filter((_action) => {
               // Filter out actions that might be no-ops
               // We want actions that actually mutate state
               return true;
