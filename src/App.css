@@ -233,3 +233,133 @@
   opacity: 0.3;
   cursor: default;
 }
+
+/* ── Properties panel ──────────────────────────────────── */
+
+.properties-panel {
+  width: 220px;
+  flex-shrink: 0;
+  background: #fff;
+  border-left: 1px solid #e0e0e3;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.properties-panel-empty {
+  font-size: 12px;
+  color: #aaa;
+  padding: 16px 12px;
+  margin: 0;
+  text-align: center;
+}
+
+.properties-panel-title {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #888;
+  margin: 0;
+  padding: 12px 12px 8px;
+}
+
+.properties-group {
+  padding: 8px 12px;
+  border-bottom: 1px solid #f0f0f2;
+}
+
+.properties-group:last-child {
+  border-bottom: none;
+}
+
+.properties-group-heading {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #999;
+  margin: 0 0 6px;
+}
+
+.properties-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.properties-field:last-child {
+  margin-bottom: 0;
+}
+
+.properties-field-label {
+  font-size: 11px;
+  color: #666;
+  min-width: 44px;
+  flex-shrink: 0;
+}
+
+.properties-field input[type="number"],
+.properties-field textarea,
+.properties-field select {
+  flex: 1;
+  min-width: 0;
+  padding: 4px 6px;
+  font-size: 12px;
+  font-family: inherit;
+  color: #333;
+  background: #f5f5f7;
+  border: 1px solid #d8d8db;
+  border-radius: 4px;
+  outline: none;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
+}
+
+.properties-field input[type="number"]:focus,
+.properties-field textarea:focus,
+.properties-field select:focus {
+  border-color: #5b8def;
+  box-shadow: 0 0 0 2px rgba(91, 141, 239, 0.15);
+}
+
+.properties-field input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.properties-field textarea {
+  resize: vertical;
+  min-height: 48px;
+}
+
+.properties-field select {
+  cursor: pointer;
+}
+
+.properties-field input[type="color"] {
+  width: 32px;
+  height: 24px;
+  padding: 1px 2px;
+  border: 1px solid #d8d8db;
+  border-radius: 4px;
+  cursor: pointer;
+  background: none;
+}
+
+.properties-image-thumbnail {
+  display: block;
+  max-width: 100%;
+  max-height: 120px;
+  border-radius: 4px;
+  border: 1px solid #e0e0e3;
+  object-fit: contain;
+}
+
+.properties-image-fallback {
+  font-size: 11px;
+  color: #aaa;
+  font-style: italic;
+  margin: 0;
+}
